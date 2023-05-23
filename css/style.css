@@ -44,6 +44,15 @@ header, .text-message, .chat-friend {
     background-color: #eaeaea;
 }
 
+#aside-chat {
+    height: calc(100% - 145px);
+    overflow: auto;
+}
+
+.chat-friend {
+    background-color: #fff;
+}
+
 .row {
     height: 100%;
     display: flex;
@@ -57,10 +66,9 @@ i {
 }
 
 img {
-    height: 35px;
-    width: 35px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
-    border: 1px solid black;
     margin-inline: 5px;
 }
 
@@ -74,6 +82,17 @@ img {
     background-color: #8ad3f1;
 }
 
+#notifiche > .row i {
+    color: #8ad3f1;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
+}
+
 #notifiche .row {
     justify-content: flex-start;
 }
@@ -83,19 +102,19 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
+    background-color: #f8f8f8;
 }
 
 #search-bar > button {
     width: 30px;
-    border: 1px solid lightgray;
+    border: 1px solid #eaeaea;
     height: 25px;
 }
 
 input {
     width: 87%;
     padding: 5px;
-    border: 1px solid lightgray;
+    border: 1px solid #eaeaea;
     height: 25px;
 }
 
@@ -127,4 +146,12 @@ input {
     min-width: 80%;
     margin: 20px;
     margin-bottom: 10px;
+}
+
+.text-message input {
+    height: 35px;
+}
+
+.text-message i {
+    margin-inline: 20px;
 }

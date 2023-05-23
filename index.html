@@ -18,7 +18,7 @@
         <div id="aside">
             <header>
                 <div class="row">
-                    <img src="" alt="">
+                    <img src="img/avatar-profile.jpeg" alt="">
                     <h5>Sofia</h5>
                 </div>
                 <div class="row">
@@ -29,7 +29,7 @@
             </header>
             <div id="notifiche">
                 <div class="row">
-                    <img src="" alt="">
+                    <i class="fa-solid fa-bell-slash"></i>
                     <div class="alert">
                         <h5>Ricevi notifiche di nuovi messaggi</h5>
                         <a href="#" class="last-acces">Attiva notifiche desktop</a>
@@ -42,12 +42,14 @@
                 </button>
                 <input type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
-            <div class="chat-friend">
-                <div class="row" v-for="chat in contacts">
-                    <img src="" alt="">
-                    <div class="user">
-                        <h5>{{chat.name}}</h5>
-                        <span class="last-acces"> Ultimo messaggio inviato</span>
+            <div id="aside-chat">
+                <div class="chat-friend" v-for="chat in contacts">
+                    <div class="row">
+                        <img :src="chat.avatar" alt="">
+                        <div class="user">
+                            <h5>{{chat.name}}</h5>
+                            <span class="last-acces"> Ultimo messaggio inviato</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -55,9 +57,9 @@
         <main>
             <header>
                 <div class="row">
-                    <img src="" alt="">
+                    <img :src="contacts[0].avatar" alt="">
                     <div class="user">
-                        <h5>Michele</h5>
+                        <h5>{{contacts[0].name}}</h5>
                         <span class="last-acces">Ultimo accesso oggi alle 21:00 </span>
                     </div>
                 </div>
