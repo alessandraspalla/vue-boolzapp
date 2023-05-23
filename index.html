@@ -43,10 +43,10 @@
                 <input type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
             <div class="chat-friend">
-                <div class="row">
+                <div class="row" v-for="chat in contacts">
                     <img src="" alt="">
                     <div class="user">
-                        <h5></h5>
+                        <h5>{{chat.name}}</h5>
                         <span class="last-acces"> Ultimo messaggio inviato</span>
                     </div>
                 </div>
