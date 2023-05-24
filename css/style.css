@@ -6,6 +6,7 @@
 }
 
 body {
+    overflow: hidden;
     background-color: #d9dbd2;
 }
 
@@ -111,11 +112,19 @@ img {
     height: 25px;
 }
 
+#search-bar > input::placeholder {
+    font-size: .7rem;
+}
+
 input {
     width: 87%;
     padding: 5px;
     border: 1px solid #eaeaea;
     height: 25px;
+}
+
+.chat-friend:hover {
+    background-color: lightgrey;
 }
 
 .chat {
@@ -126,16 +135,10 @@ input {
     display: flex;
 }
 
-#pc-message, #user-message{
-    width: 50%;
-}
-
-#pc-message > .message {
+.pc-message {
     background-color: #fff;
-    margin-top: 130px;
 }
-
-#user-message > .message {
+.user-message {
     background-color: #d5f9ba;
 }
 
@@ -154,4 +157,14 @@ input {
 
 .text-message i {
     margin-inline: 20px;
+}
+
+.left {
+    align-self: flex-start;
+    background-color: #fff;
+}
+
+.right {
+    align-self: flex-end;
+    background-color: #d5f9ba;
 }

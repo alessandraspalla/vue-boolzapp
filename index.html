@@ -70,18 +70,8 @@
                 </div>
             </header>
             <div class="chat">
-                <div id="pc-message">
-                    <div class="message">
-                        No
-                    </div>
-                </div>
-                <div id="user-message">
-                    <div class="message">
-                        Hai portato a spasso il cane?
-                    </div>
-                    <div class="message">
-                        Hai portato a spasso il cane?
-                    </div>
+                <div class="message" v-for="(sms, i) in contacts.messages">
+                    {{sms.message}}
                 </div>
             </div>
             <div class="text-message">

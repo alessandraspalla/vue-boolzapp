@@ -3,7 +3,7 @@ const {createApp} = Vue;
 createApp({
     data(){
         return {
-            profileImage: 'img/avatr-profile.jpeg',
+            indiceChat: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -107,7 +107,7 @@ createApp({
                 },
                 {
                     name: 'Claudia',
-                    avatar: './img/avatar_5.png',
+                    avatar: './img/avatar_6.png',
                     visible: true,
                     messages: [
                         {
