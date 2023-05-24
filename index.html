@@ -15,7 +15,9 @@
     <div id="green-line"></div>
 
     <div id="app" class="container">
+        <!-- container laterale -->
         <div id="aside">
+            <!-- header container laterare con info profilo -->
             <header>
                 <div class="row">
                     <img src="img/avatar-profile.jpeg" alt="">
@@ -27,6 +29,7 @@
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
             </header>
+            <!-- banner notifiche desktop -->
             <div id="notifiche">
                 <div class="row">
                     <i class="fa-solid fa-bell-slash"></i>
@@ -36,12 +39,14 @@
                     </div>
                 </div>
             </div>
+            <!-- barra di ricerca per chat -->
             <div id="search-bar">
                 <button>
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
                 <input type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
+            <!-- elenco contatti -->
             <div id="aside-chat">
                 <div class="chat-friend" v-for="(chat, i) in contacts" @click="changeChat(i)">
                     <div class="row">
@@ -54,8 +59,11 @@
                 </div>
             </div>
         </div>
+        <!-- parte corpo principale -->
         <main>
+            <!-- header del  main -->
             <header>
+                <!-- riga riferimento chat attiva -->
                 <div class="row">
                     <img :src="contacts[indiceChat].avatar" alt="">
                     <div class="user">
@@ -69,11 +77,13 @@
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
             </header>
+            <!-- contenuto chat -->
             <div class="chat">
                 <div class="message" v-for="(sms, i) in contacts[indiceChat].messages" :class="sms.status === 'sent' ? 'right' : 'left'">
                     {{sms.message}}
                 </div>
             </div>
+            <!-- input per digitare messaggi -->
             <div class="text-message">
                 <i class="fa-regular fa-face-smile"></i>
                 <input type="text" placeholder="Scrivi un messaggio" v-model="testoMessaggio" @keyup.enter="sendMessage">

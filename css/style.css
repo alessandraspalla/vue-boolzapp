@@ -23,18 +23,18 @@ body {
     position: relative;
     top: -70px;
     display: flex;
+    border: 1px solid #aeafb3;
 }
 
 #aside {
     width: 30%;
-    border: 1px solid lightgrey;
+    border-right: 1px solid #aeafb3;
     min-width: 200px;
     background-color: #fff;
 }
 
 main {
     width: 70%;
-    border: 1px solid lightgrey;
 }
 
 header, .text-message, .chat-friend {
@@ -138,13 +138,6 @@ input {
     padding: 20px;
 }
 
-.pc-message {
-    background-color: #fff;
-}
-.user-message {
-    background-color: #d5f9ba;
-}
-
 .message {
     padding: 8px;
     border-radius: 10px;
@@ -152,14 +145,6 @@ input {
     width: 200px;
     margin-bottom: 10px;
     font-size: .85rem;
-}
-
-.text-message input {
-    height: 35px;
-}
-
-.text-message i {
-    margin-inline: 20px;
 }
 
 .left {
@@ -170,4 +155,12 @@ input {
 .right {
     align-self: flex-end;
     background-color: #d5f9ba;
+}
+
+.text-message input {
+    height: 35px;
+}
+
+.text-message i {
+    margin-inline: 20px;
 }

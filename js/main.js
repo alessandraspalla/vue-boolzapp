@@ -177,7 +177,7 @@ createApp({
         changeChat(indice){
             this.indiceChat=indice;
         },
-        sendMessage(){
+        sendMessage: function(){
             const newMessage = {
                 date: '10/01/2020 15:51:00',
                 message: this.testoMessaggio,
@@ -187,6 +187,15 @@ createApp({
                 this.contacts[this.indiceChat].messages.push(newMessage);
             }
             this.testoMessaggio = ''
-        }
+            setTimeout(() => {
+                const returnMessage = {
+                    date: '10/01/2020 15:51:00',
+                    message: 'OKAY',
+                    status: 'received'
+                }
+                this.contacts[this.indiceChat].messages.push(returnMessage);
+            }, 1000);
+        },
+
     }
 }).mount('#app');
