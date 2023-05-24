@@ -43,7 +43,7 @@
                 <input type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
             <div id="aside-chat">
-                <div class="chat-friend" v-for="chat in contacts">
+                <div class="chat-friend" v-for="(chat, i) in contacts" @click="changeChat(i)">
                     <div class="row">
                         <img :src="chat.avatar" alt="">
                         <div class="user">
@@ -57,9 +57,9 @@
         <main>
             <header>
                 <div class="row">
-                    <img :src="contacts[0].avatar" alt="">
+                    <img :src="contacts[indiceChat].avatar" alt="">
                     <div class="user">
-                        <h5>{{contacts[0].name}}</h5>
+                        <h5>{{contacts[indiceChat].name}}</h5>
                         <span class="last-acces">Ultimo accesso oggi alle 21:00 </span>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                 </div>
             </header>
             <div class="chat">
-                <div class="message" v-for="(sms, i) in contacts.messages">
+                <div class="message" v-for="(sms, i) in contacts[indiceChat].messages" :class="sms.status === 'sent' ? 'right' : 'left'">
                     {{sms.message}}
                 </div>
             </div>

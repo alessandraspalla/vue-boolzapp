@@ -168,5 +168,10 @@ createApp({
                 }
         ]
         }
+    },
+    methods: {
+        changeChat(indice){
+            this.indiceChat=indice;
+        }
     }
 }).mount('#app');
