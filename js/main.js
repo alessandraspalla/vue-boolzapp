@@ -1,9 +1,13 @@
+/*
+Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+*/
 const {createApp} = Vue;
 
 createApp({
     data(){
         return {
             indiceChat: 0,
+            testoMessaggio: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -172,6 +176,17 @@ createApp({
     methods: {
         changeChat(indice){
             this.indiceChat=indice;
+        },
+        sendMessage(){
+            const newMessage = {
+                date: '10/01/2020 15:51:00',
+                message: this.testoMessaggio,
+                status: 'sent'
+            }
+            if(newMessage.message !== ''){
+                this.contacts[this.indiceChat].messages.push(newMessage);
+            }
+            this.testoMessaggio = ''
         }
     }
 }).mount('#app');
