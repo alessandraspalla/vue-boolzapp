@@ -86,7 +86,7 @@
                 <div class="message" v-for="(sms, i) in contacts[indiceChat].messages" :class="sms.status === 'sent' ? 'right' : 'left'" @click="showDropMenu(i)">
                     {{sms.message}}
                     <span id="orario-messaggi">{{sms.date}}</span>
-                    <div id="delete" class="none" v-if="indiceDropMenu === i" :class="classShowDropMenu">
+                    <div id="delete" class="none" v-if="indiceDropMenu === i" :class="classShow">
                         <div>Info Messagge</div>
                         <div @click="deleteMessage(i)">Delete Messagge</div>
                     </div>
@@ -95,8 +95,9 @@
             <!-- input per digitare messaggi -->
             <div class="text-message">
                 <i class="fa-regular fa-face-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio" v-model="testoMessaggio" @keyup.enter="sendMessage">
-                <i class="fa-solid fa-microphone"></i>
+                <input type="text" placeholder="Scrivi un messaggio" v-model="testoMessaggio" @keyup.enter="sendMessage" @input="changeDisplay">
+                <i class="fa-solid fa-paper-plane none" :class="classShow" @click="sendMessage"></i>
+                <i class="fa-solid fa-microphone" :class="dNone"></i>
             </div>
         </main>
     </div>

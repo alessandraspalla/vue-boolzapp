@@ -1,6 +1,3 @@
-/*
-Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
-*/
 const {createApp} = Vue;
 
 createApp({
@@ -11,7 +8,8 @@ createApp({
             indiceChat: 0,
             testoMessaggio: '',
             indiceDropMenu:'',
-            classShowDropMenu:'',
+            classShow:'',
+            dNone:'',
             contacts: [
                 {
                     name: 'Michele',
@@ -198,16 +196,18 @@ createApp({
             }
             if(newMessage.message !== ''){
                 this.contacts[this.indiceChat].messages.push(newMessage);
+                setTimeout(() => {
+                    const returnMessage = {
+                        date: this.data,
+                        message: this.frasiRisposteRandom[this.numRandLunghezzaArray(this.frasiRisposteRandom)],
+                        status: 'received'
+                    }
+                    this.contacts[this.indiceChat].messages.push(returnMessage);
+                }, 1000);
             }
             this.testoMessaggio = ''
-            setTimeout(() => {
-                const returnMessage = {
-                    date: this.data,
-                    message: this.frasiRisposteRandom[this.numRandLunghezzaArray(this.frasiRisposteRandom)],
-                    status: 'received'
-                }
-                this.contacts[this.indiceChat].messages.push(returnMessage);
-            }, 1000);
+            this.classShow = ''
+            this.dNone = ''
         },
         searchChat(){
             this.contacts.forEach(element => {
@@ -221,10 +221,19 @@ createApp({
         },
         showDropMenu(indice){
             this.indiceDropMenu=indice
-            this.classShowDropMenu = 'active'    
+            this.classShow = 'active'    
         },
         numRandLunghezzaArray(nomeArray){
             return Math.round(Math.random() * (nomeArray.length - 1))
+        },
+        changeDisplay(){
+            if (this.testoMessaggio !== '') {
+                this.classShow = 'active'
+                this.dNone = 'none' 
+            } else {
+                this.classShow = ''
+                this.dNone = ''
+            }
         }
     }
 }).mount('#app');

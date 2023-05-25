@@ -26,6 +26,17 @@ body {
     border: 1px solid #aeafb3;
 }
 
+#splash-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    background-color: #d5f9ba;
+}
+
 #aside {
     width: 30%;
     border-right: 1px solid #aeafb3;
@@ -63,6 +74,7 @@ header, .text-message {
 }
 
 .row {
+    height: 100%;   
     display: flex;
     justify-content: space-between;
     align-items: center;
