@@ -85,7 +85,8 @@
             <div class="chat">
                 <div class="message" v-for="(sms, i) in contacts[indiceChat].messages" :class="sms.status === 'sent' ? 'right' : 'left'" @click="showDropMenu(i)">
                     {{sms.message}}
-                    <div id="delete" class="none" :class="visibilità">
+                    <span id="orario-messaggi">{{sms.date}}</span>
+                    <div id="delete" class="none" v-if="indiceDropMenu === i" :class="classShowDropMenu">
                         <div>Info Messagge</div>
                         <div @click="deleteMessage(i)">Delete Messagge</div>
                     </div>

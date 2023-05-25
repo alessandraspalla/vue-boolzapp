@@ -83,7 +83,7 @@ img {
     margin-inline: 5px;
 }
 
-.last-acces, #orario{
+.last-acces, #orario, #orario-messaggi{
     color: grey;
     font-size: .7rem;
 }
@@ -156,6 +156,12 @@ input {
     margin-bottom: 10px;
     font-size: .85rem;
     position: relative;
+}
+
+#orario-messaggi {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
 }
 
 .left {

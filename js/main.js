@@ -10,7 +10,8 @@ createApp({
             ricerca:'',
             indiceChat: 0,
             testoMessaggio: '',
-            visibilità:'',
+            indiceDropMenu:'',
+            classShowDropMenu:'',
             contacts: [
                 {
                     name: 'Michele',
@@ -210,8 +211,8 @@ createApp({
             this.contacts[this.indiceChat].messages.splice(indice, 1)
         },
         showDropMenu(indice){
-            this.visibilità='active'
-            console.log(this.data);
+            this.indiceDropMenu=indice
+            this.classShowDropMenu = 'active'    
         }
     }
 }).mount('#app');
