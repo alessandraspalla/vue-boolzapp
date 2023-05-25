@@ -6,6 +6,7 @@ const {createApp} = Vue;
 createApp({
     data(){
         return {
+            data: new Date(Date.now()).toLocaleTimeString(),
             ricerca:'',
             indiceChat: 0,
             testoMessaggio: '',
@@ -181,7 +182,7 @@ createApp({
         },
         sendMessage(){
             const newMessage = {
-                date: '10/01/2020 15:51:00',
+                date: this.data,
                 message: this.testoMessaggio,
                 status: 'sent'
             }
@@ -191,7 +192,7 @@ createApp({
             this.testoMessaggio = ''
             setTimeout(() => {
                 const returnMessage = {
-                    date: '10/01/2020 15:51:00',
+                    date: this.data,
                     message: 'OK',
                     status: 'received'
                 }
@@ -199,19 +200,18 @@ createApp({
             }, 1000);
         },
         searchChat(){
-            for (let i = 0; i < this.contacts.length; i++) {
-                if (!this.contacts[i].name.includes(this.ricerca)) {
-                    console.log(this.contacts[i].name + ' non ci sei');
-                    this.contacts[i].visible = false
+            this.contacts.forEach(element => {
+                if (!element.name.includes(this.ricerca)) {
+                    element.visible = false
                 }
-            }
+            });
         },
         deleteMessage(indice){
             this.contacts[this.indiceChat].messages.splice(indice, 1)
         },
         showDropMenu(indice){
             this.visibilità='active'
-            console.log(indice);
+            console.log(this.data);
         }
     }
 }).mount('#app');

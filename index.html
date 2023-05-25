@@ -56,7 +56,8 @@
                         <img :src="chat.avatar" alt="">
                         <div class="user">
                             <h5>{{chat.name}}</h5>
-                            <span class="last-acces"> Ultimo messaggio inviato</span>
+                            <span class="last-acces">{{chat.messages[0].message}}</span>
+                            <span id="orario">{{data}}</span>
                         </div>
                     </div>
                 </div>
@@ -99,6 +100,7 @@
         </main>
     </div>
     
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="js/main.js"></script>
 </body>

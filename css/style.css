@@ -61,9 +61,19 @@ header, .text-message, .chat-friend {
     align-items: center;
 }
 
-i {
+i{
     color: grey;
     margin-inline: 8px;
+}
+
+#sparisci {
+    position: relative;
+}
+
+#orario {
+    position: absolute;
+    top: 0;
+    right: 5px;
 }
 
 img {
@@ -73,7 +83,7 @@ img {
     margin-inline: 5px;
 }
 
-.last-acces{
+.last-acces, #orario{
     color: grey;
     font-size: .7rem;
 }
