@@ -56,8 +56,8 @@
                         <img :src="chat.avatar" alt="">
                         <div class="user">
                             <h5>{{chat.name}}</h5>
-                            <span class="last-acces">{{chat.messages[0].message}}</span>
-                            <span id="orario">{{data}}</span>
+                            <span class="last-acces">{{chat.messages[chat.messages.length -1].message}}</span>
+                            <span id="orario">{{chat.messages[chat.messages.length -1].date}}</span>
                         </div>
                     </div>
                 </div>
