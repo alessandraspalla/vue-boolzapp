@@ -6,7 +6,7 @@ const {createApp} = Vue;
 createApp({
     data(){
         return {
-            data: new Date(Date.now()).toLocaleTimeString(),
+            data: new Date(Date.now()).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
             ricerca:'',
             indiceChat: 0,
             testoMessaggio: '',
@@ -19,17 +19,17 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '15:30',
                             message: 'Hai portato a spasso il cane?',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '15:50',
                             message: 'Ricordati di stendere i panni',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 16:15:22',
+                            date: '16:15',
                             message: 'Tutto fatto!',
                             status: 'received'
                         }
@@ -41,17 +41,17 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '20/03/2020 16:30:00',
+                            date: '16:30',
                             message: 'Ciao come stai?',
                             status: 'sent'
                         },
                         {
-                            date: '20/03/2020 16:30:55',
+                            date: '16:30',
                             message: 'Bene grazie! Stasera ci vediamo?',
                             status: 'received'
                         },
                         {
-                            date: '20/03/2020 16:35:00',
+                            date: '16:35',
                             message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                             status: 'sent'
                         }
@@ -63,17 +63,17 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '28/03/2020 10:10:40',
+                            date: '10:10',
                             message: 'La Marianna va in campagna',
                             status: 'received'
                         },
                         {
-                            date: '28/03/2020 10:20:10',
+                            date: '10:20',
                             message: 'Sicuro di non aver sbagliato chat?',
                             status: 'sent'
                         },
                         {
-                            date: '28/03/2020 16:15:22',
+                            date: '16:15',
                             message: 'Ah scusa!',
                             status: 'received'
                         }
@@ -85,12 +85,12 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '15:30',
                             message: 'Lo sai che ha aperto una nuova pizzeria?',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '15:50',
                             message: 'Si, ma preferirei andare al cinema',
                             status: 'received'
                         }
@@ -102,12 +102,12 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '15:30',
                             message: 'Ricordati di chiamare la nonna',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '15:50',
                             message: 'Va bene, stasera la sento',
                             status: 'received'
                         }
@@ -119,17 +119,17 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '15:30',
                             message: 'Ciao Claudia, hai novità?',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '15:50',
                             message: 'Non ancora',
                             status: 'received'
                         },
                         {
-                            date: '10/01/2020 15:51:00',
+                            date: '15:51',
                             message: 'Nessuna nuova, buona nuova',
                             status: 'sent'
                         }
@@ -141,12 +141,12 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '15:30',
                             message: 'Fai gli auguri a Martina che è il suo compleanno!',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '15:50',
                             message: 'Grazie per avermelo ricordato, le scrivo subito!',
                             status: 'received'
                         }
@@ -158,23 +158,32 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '15:30',
                             message: 'Ciao, andiamo a mangiare la pizza stasera?',
                             status: 'received'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            date: '15:50',
                             message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:51:00',
+                            date: '15:51',
                             message: 'OK!!',
                             status: 'received'
                         }
                     ],
                 }
-        ]
+            ],
+            frasiRisposteRandom: [
+                "Angelica formalizza le masse interarticolari così noi riteniamo i ricordi economicistici.",
+                "L'angoli è l'attività vissuta delle vite innocenti ed è facile come contare fino a 10.",
+                "La condizione è il blues contadino di un gabbiano eccitato infatti per me è una sorpresa.",
+                "La campagna è la Francia simbolica di un' avventura dodicesima , ebbene, tutto il mondo è paese.",
+                "Il mercato è l'esempio morenico di un autista soggetto ma vorrei averne una conferma definitiva.",
+                "L'impressione è tra le aziende vanitose di un attore affranto ma nella vita non si può mai sapere.",
+                "I fatti sono la guerra caratteristica di un episodio record a patto che non cambi qualcosa nei prossimi mesi."
+            ]   
         }
     },
     methods: {
@@ -194,7 +203,7 @@ createApp({
             setTimeout(() => {
                 const returnMessage = {
                     date: this.data,
-                    message: 'OK',
+                    message: this.frasiRisposteRandom[this.numRandLunghezzaArray(this.frasiRisposteRandom)],
                     status: 'received'
                 }
                 this.contacts[this.indiceChat].messages.push(returnMessage);
@@ -213,6 +222,9 @@ createApp({
         showDropMenu(indice){
             this.indiceDropMenu=indice
             this.classShowDropMenu = 'active'    
+        },
+        numRandLunghezzaArray(nomeArray){
+            return Math.round(Math.random() * (nomeArray.length - 1))
         }
     }
 }).mount('#app');

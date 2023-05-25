@@ -37,12 +37,20 @@ main {
     width: 70%;
 }
 
-header, .text-message, .chat-friend {
+header, .text-message {
     height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #eaeaea;
+}
+
+.chat-friend{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+    min-height: 60px;
 }
 
 #aside-chat {
@@ -55,7 +63,6 @@ header, .text-message, .chat-friend {
 }
 
 .row {
-    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -88,6 +95,10 @@ img {
     font-size: .7rem;
 }
 
+.last-acces {
+    overflow: hidden;
+}
+
 #notifiche {
     height: 60px;
     background-color: #8ad3f1;
@@ -115,7 +126,6 @@ img {
     justify-content: center;
     background-color: #f8f8f8;
 }
-
 #search-bar > button {
     width: 30px;
     border: 1px solid #eaeaea;
@@ -141,8 +151,7 @@ input {
     height: calc(100% - 100px);
     background-image: url(../img/sfondo\ whatsapp.png);
     background-size: 50%;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: auto;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -151,7 +160,6 @@ input {
 .message {
     padding: 8px;
     border-radius: 10px;
-    min-height: 30px;
     width: 200px;
     margin-bottom: 10px;
     font-size: .85rem;
