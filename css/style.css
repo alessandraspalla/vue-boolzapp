@@ -169,3 +169,24 @@ input {
 .none {
     display: none;
 }
+
+.active {
+    display: block;
+}
+
+#delete {
+    width: 140px;
+    height: 80px;
+    background-color: #fff;
+    position: absolute;
+    bottom: -70px;
+    right: 0;
+    z-index: 999;
+    border-radius: 5px;
+    font-size: .8rem;
+    border: .3px solid lightgrey;
+}
+
+#delete > div {
+    padding: 10px 15px;
+}

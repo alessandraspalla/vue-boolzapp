@@ -198,13 +198,20 @@ createApp({
                 this.contacts[this.indiceChat].messages.push(returnMessage);
             }, 1000);
         },
-        searchChat(indice){
+        searchChat(){
             for (let i = 0; i < this.contacts.length; i++) {
                 if (!this.contacts[i].name.includes(this.ricerca)) {
                     console.log(this.contacts[i].name + ' non ci sei');
                     this.contacts[i].visible = false
                 }
             }
+        },
+        deleteMessage(indice){
+            this.contacts[this.indiceChat].messages.splice(indice, 1)
+        },
+        showDropMenu(indice){
+            this.visibilità='active'
+            console.log(indice);
         }
     }
 }).mount('#app');
