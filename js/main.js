@@ -1,13 +1,15 @@
 /*
-Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
 */
 const {createApp} = Vue;
 
 createApp({
     data(){
         return {
+            ricerca:'',
             indiceChat: 0,
             testoMessaggio: '',
+            visibilità:'',
             contacts: [
                 {
                     name: 'Michele',
@@ -177,7 +179,7 @@ createApp({
         changeChat(indice){
             this.indiceChat=indice;
         },
-        sendMessage: function(){
+        sendMessage(){
             const newMessage = {
                 date: '10/01/2020 15:51:00',
                 message: this.testoMessaggio,
@@ -190,12 +192,19 @@ createApp({
             setTimeout(() => {
                 const returnMessage = {
                     date: '10/01/2020 15:51:00',
-                    message: 'OKAY',
+                    message: 'OK',
                     status: 'received'
                 }
                 this.contacts[this.indiceChat].messages.push(returnMessage);
             }, 1000);
         },
-
+        searchChat(indice){
+            for (let i = 0; i < this.contacts.length; i++) {
+                if (!this.contacts[i].name.includes(this.ricerca)) {
+                    console.log(this.contacts[i].name + ' non ci sei');
+                    this.contacts[i].visible = false
+                }
+            }
+        }
     }
 }).mount('#app');

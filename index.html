@@ -39,16 +39,19 @@
                     </div>
                 </div>
             </div>
-            <!-- barra di ricerca per chat -->
-            <div id="search-bar">
-                <button>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-                <input type="text" placeholder="Cerca o inizia una nuova chat">
-            </div>
             <!-- elenco contatti -->
             <div id="aside-chat">
-                <div class="chat-friend" v-for="(chat, i) in contacts" @click="changeChat(i)">
+                <!-- barra di ricerca per chat -->
+                <div id="search-bar">
+                    <button @click="searchChat(i)">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="ricerca" @keyup.enter="searchChat">
+                </div>
+                <div id="sparisci" class="chat-friend"  
+                v-for="(chat, i) in contacts" 
+                :class="chat.visible === false ? 'none' : ''"
+                @click="changeChat(i)">
                     <div class="row">
                         <img :src="chat.avatar" alt="">
                         <div class="user">
@@ -81,6 +84,10 @@
             <div class="chat">
                 <div class="message" v-for="(sms, i) in contacts[indiceChat].messages" :class="sms.status === 'sent' ? 'right' : 'left'">
                     {{sms.message}}
+                    <div id="delete">
+                        <span>Info Messaggio</span>
+                        <span>Cancella Messaggio</span>
+                    </div>
                 </div>
             </div>
             <!-- input per digitare messaggi -->

@@ -46,7 +46,7 @@ header, .text-message, .chat-friend {
 }
 
 #aside-chat {
-    height: calc(100% - 145px);
+    height: calc(100% - 110px);
     overflow: auto;
 }
 
@@ -145,6 +145,7 @@ input {
     width: 200px;
     margin-bottom: 10px;
     font-size: .85rem;
+    position: relative;
 }
 
 .left {
@@ -163,4 +164,8 @@ input {
 
 .text-message i {
     margin-inline: 20px;
+}
+
+.none {
+    display: none;
 }
