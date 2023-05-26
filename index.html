@@ -56,8 +56,8 @@
                         <img :src="chat.avatar" alt="">
                         <div class="user">
                             <h5>{{chat.name}}</h5>
-                            <span class="last-acces">{{chat.messages[chat.messages.length -1].message}}</span>
-                            <span id="orario">{{chat.messages[chat.messages.length -1].date}}</span>
+                            <span v-if="chat.messages[chat.messages.length - 1]" class="last-acces">{{chat.messages[chat.messages.length - 1].message}}</span>
+                            <span v-if="chat.messages[chat.messages.length - 1]" id="orario">{{chat.messages[chat.messages.length - 1].date}}</span>
                         </div>
                     </div>
                 </div>
@@ -75,10 +75,14 @@
                         <span class="last-acces">Ultimo accesso oggi alle 21:00 </span>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row relative">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <i class="fa-solid fa-paperclip"></i>
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                    <i class="fa-solid fa-ellipsis-vertical" @click="showDeleteMenu"></i>
+                    <div id="dropdown" class="none" :class="dBlock">
+                        <div @click="deleteAllMessage">Elimina Messaggi</div>
+                        <div @click="deleteChat">Elimina Chat</div>
+                    </div>
                 </div>
             </header>
             <!-- contenuto chat -->
@@ -86,7 +90,7 @@
                 <div class="message" v-for="(sms, i) in contacts[indiceChat].messages" :class="sms.status === 'sent' ? 'right' : 'left'" @click="showDropMenu(i)">
                     {{sms.message}}
                     <span id="orario-messaggi">{{sms.date}}</span>
-                    <div id="delete" class="none" v-if="indiceDropMenu === i" :class="classShow">
+                    <div id="dropdown" class="none" v-if="indiceDropMenu === i" :class="classShow">
                         <div>Info Messagge</div>
                         <div @click="deleteMessage(i)">Delete Messagge</div>
                     </div>

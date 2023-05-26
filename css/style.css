@@ -82,7 +82,7 @@ header, .text-message {
 
 i{
     color: grey;
-    margin-inline: 8px;
+    padding-inline: 10px;
 }
 
 #sparisci {
@@ -210,7 +210,7 @@ input {
     display: block;
 }
 
-#delete {
+#dropdown {
     width: 140px;
     height: 80px;
     background-color: #fff;
@@ -223,6 +223,10 @@ input {
     border: .3px solid lightgrey;
 }
 
-#delete > div {
+#dropdown > div {
     padding: 10px 15px;
+}
+
+.row.relative {
+    position: relative;
 }

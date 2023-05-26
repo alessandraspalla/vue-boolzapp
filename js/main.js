@@ -3,12 +3,13 @@ const {createApp} = Vue;
 createApp({
     data(){
         return {
-            data: new Date(Date.now()).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+            ora: new Date(Date.now()).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
             ricerca:'',
             indiceChat: 0,
             testoMessaggio: '',
             indiceDropMenu:'',
             classShow:'',
+            dBlock:'',
             dNone:'',
             contacts: [
                 {
@@ -190,7 +191,7 @@ createApp({
         },
         sendMessage(){
             const newMessage = {
-                date: this.data,
+                date: this.ora,
                 message: this.testoMessaggio,
                 status: 'sent'
             }
@@ -198,7 +199,7 @@ createApp({
                 this.contacts[this.indiceChat].messages.push(newMessage);
                 setTimeout(() => {
                     const returnMessage = {
-                        date: this.data,
+                        date: this.ora,
                         message: this.frasiRisposteRandom[this.numRandLunghezzaArray(this.frasiRisposteRandom)],
                         status: 'received'
                     }
@@ -234,6 +235,18 @@ createApp({
                 this.classShow = ''
                 this.dNone = ''
             }
+        },
+        showDeleteMenu(){
+            this.dBlock='active'
+        },
+        deleteAllMessage(){
+            this.contacts[this.indiceChat].messages = []
+            this.dBlock=''
+        },
+        deleteChat(){
+            this.contacts[this.indiceChat].visible = false
+            this.indiceChat++
+            this.dBlock=''
         }
     }
 }).mount('#app');
